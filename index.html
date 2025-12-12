@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Monarch - Главная</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --gradient-1: linear-gradient(135deg,#2A2D32 0%,#4A4F57 40%,#7A818A 70%,#2A2D32 100%);
+      --text-gradient: linear-gradient(135deg,#E0E4EB 0%,#FFFFFF 40%,#A4B0C1 70%,#E0E4EB 100%);
+    }
+
+    .font-aboreto { font-family: "Aboreto", serif; }
+
+    .text-gradient {
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-bg {
+      background: var(--gradient-1);
+    }
+    .section-bg {
+      background: #065B60;
+    }
+    .card-bg {
+      background: #D7E1F3;
+    }
+    .button-bg {
+      background: #004649;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s ease, transform .7s ease;
+      will-change: transform, opacity;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      .hero-title { font-size: 3.25rem; } 
+      .hero-sub { font-size: 1.05rem; }
+    }
+    @media (min-width: 641px) {
+      .hero-title { font-size: 6.5rem; } 
+      .hero-sub { font-size: 1.75rem; }
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    .focus-ring:focus { outline: 3px solid rgba(99,102,241,.25); outline-offset: 3px; }
+  </style>
+</head>
+<body class="bg-white text-black font-inter antialiased">
+
+  <header class="w-full px-6 md:px-12 py-4 flex items-center justify-between sticky top-0 z-40 bg-white/80 backdrop-blur-sm">
+    <div class="flex items-center gap-3">
+      <img src="images/MONARCH.svg" alt="Monarch logo" class="h-10 md:h-14" />
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6 text-lg">
+      <a href="index.html" class="text-black text-xl font-semibold hover:text-[#65A3FF] transition">Главная</a>
+      <a href="catalog.html" class="text-black text-lg hover:text-[#65A3FF] transition">Каталог</a>
+      <a href="login.html" class="px-4 py-2 rounded-lg text-base text-white font-medium section-bg hover:opacity-90 transition focus-ring">Войти</a>
+    </nav>
+
+    <div class="md:hidden">
+      <button id="mobileMenuBtn" aria-label="Меню" class="p-2 rounded-md hover:bg-gray-100 transition focus-ring">
+        <img src="images/menu.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <div id="mobileNav" class="md:hidden px-6 pb-4 hidden">
+    <a href="index.html" class="block py-2 text-lg font-medium hover:text-[#65A3FF]">Главная</a>
+    <a href="catalog.html" class="block py-2 text-lg font-medium hover:text-[#65A3FF]">Каталог</a>
+    <a href="login.html" class="block py-2 mt-2 text-lg font-medium button-bg text-center rounded-md">Войти</a>
+  </div>
+
+  <section class="w-full px-4 md:px-10 flex justify-center">
+    <div class="w-full max-w-[1880px]">
+
+      <div class="relative overflow-hidden rounded-2xl flex items-center"
+           style="background-image: url('images/main bg.svg'); background-size: cover; background-position: center;">
+
+        <div class="px-8 md:px-20 py-28 md:py-40">
+          <h1 class="hero-title font-aboreto uppercase leading-tight text-gradient select-none reveal" aria-hidden="true">MONARCH</h1>
+          <p class="hero-sub mt-4 text-gray-200 reveal">Наследие роскоши. Современность комфорта.</p>
+        </div>
+      </div>
+
+      <div class="w-full -mt-12 md:-mt-16 relative z-10">
+        <div class="mx-4 md:mx-[150px] section-bg rounded-xl px-4 md:px-8 py-4 md:py-6 flex flex-wrap items-center gap-4 md:gap-8 shadow-lg">
+
+          <div class="flex-1 min-w-[180px] md:min-w-[260px] border-b md:border-b-0 md:border-r border-white/20 pb-3 md:pb-0 reveal">
+            <div class="text-white text-lg md:text-2xl font-medium">Локация</div>
+            <div class="text-white/80 text-sm md:text-base">Где хотите забронировать комнату?</div>
+          </div>
+
+          <div class="flex-1 min-w-[180px] md:min-w-[260px] border-b md:border-b-0 md:border-r border-white/20 pb-3 md:pb-0 reveal">
+            <div class="text-white text-lg md:text-2xl font-medium">Период бронирования</div>
+            <div class="text-white/80 text-sm md:text-base">На какое время хотите забронировать комнату?</div>
+          </div>
+
+          <div class="flex-1 min-w-[140px] md:min-w-[220px] border-b md:border-b-0 md:border-r border-white/20 pb-3 md:pb-0 reveal">
+            <div class="text-white text-lg md:text-2xl font-medium">Кол-во гостей</div>
+            <div class="text-white/80 text-sm md:text-base">На сколько человек?</div>
+          </div>
+
+           <form action="catalog.html" class="action">
+                <button class="p-3 rounded-xl button-bg hover:bg-[#048a8f] transition focus-ring" aria-label="Поиск">
+                    <img src="images/search.svg" alt="Поиск" class="w-5 h-5 invert-[.15] filter"/>
+                </button>
+           </form>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full px-4 md:px-10 mt-10 md:mt-14">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-center text-3xl md:text-4xl font-semibold text-black mb-6 reveal">О нас</h2>
+
+      <div class="flex flex-col lg:flex-row gap-6">
+        <div class="flex-1 card-bg rounded-2xl p-6 reveal hover:translate-y-[-4px] transition-transform">
+          <h3 class="text-[#2C3E50] text-2xl md:text-3xl font-medium mb-3">Отель, в котором хочется остаться</h3>
+          <p class="text-[#41566C] text-base md:text-lg">Monarch — это уютное пространство в центре города, созданное для вашего отдыха. Мы стараемся сделать ваше пребывание максимально удобным и приятным, предлагая внимательный сервис и комфортабельные номера. Здесь вы сможете расслабиться после насыщенного дня.</p>
+        </div>
+
+        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div class="card-bg rounded-2xl p-5 reveal hover:translate-y-[-4px] transition-transform">
+            <div class="flex items-center gap-3 mb-2">
+              <img src="images/map icon.svg" alt="" class="w-6 h-6" />
+              <h4 class="text-[#2C3E50] text-lg font-semibold">Удобное расположение</h4>
+            </div>
+            <p class="text-[#41566C]">Мы находимся в центре, в шаговой доступности от главных достопримечательностей и деловых кварталов.</p>
+          </div>
+
+          <div class="card-bg rounded-2xl p-5 reveal hover:translate-y-[-4px] transition-transform">
+            <div class="flex items-center gap-3 mb-2">
+              <img src="images/home.svg" alt="" class="w-6 h-6" />
+              <h4 class="text-[#2C3E50] text-lg font-semibold">Комфортные номера</h4>
+            </div>
+            <p class="text-[#41566C]">Просторные и светлые номера с удобными кроватями и всем необходимым для отдыха.</p>
+          </div>
+          <div class="card-bg rounded-2xl p-5 reveal hover:translate-y-[-4px] transition-transform">
+            <div class="flex items-center gap-3 mb-2">
+              <img src="images/peoples.svg" alt="" class="w-6 h-6" />
+              <h4 class="text-[#2C3E50] text-lg font-semibold">Внимательный сервис</h4>
+            </div>
+            <p class="text-[#41566C]">Наша команда всегда готова помочь и ответить на любые ваши вопросы.</p>
+          </div>
+
+          <div class="card-bg rounded-2xl p-5 reveal hover:translate-y-[-4px] transition-transform">
+            <div class="flex items-center gap-3 mb-2">
+              <img src="images/smile.svg" alt="" class="w-6 h-6" />
+              <h4 class="text-[#2C3E50] text-lg font-semibold">Приветственная атмосфера</h4>
+            </div>
+            <p class="text-[#41566C]">Дружелюбная и спокойная обстановка для вашего комфортного пребывания.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full px-4 md:px-10 mt-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-center text-3xl md:text-4xl font-semibold text-black mb-6 reveal">Наши услуги</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="card-bg rounded-2xl p-5 min-h-[520px] reveal hover:shadow-2xl transition-shadow hover:translate-y-[-4px] transition-transform">
+          <img src="images/services 1.svg" alt="Номера" class="w-full h-64 object-cover rounded-lg mb-4" />
+          <h3 class="text-[#2C3E50] text-xl font-medium text-center">Размещение в номерах различных категорий</h3>
+          <p class="text-[#41566C] text-center mt-2">От уютных стандартных номеров до просторных люксов.</p>
+        </div>
+
+        <div class="card-bg rounded-2xl p-5 min-h-[520px] reveal hover:shadow-2xl transition-shadow hover:translate-y-[-4px] transition-transform">
+          <img src="images/services 2.svg" alt="Ресторан" class="w-full h-64 object-cover rounded-lg mb-4" />
+          <h3 class="text-[#2C3E50] text-xl font-medium text-center">Ресторан и лобби-бар</h3>
+          <p class="text-[#41566C] text-center mt-2">Вкусные завтраки и разнообразное меню в течение дня.</p>
+        </div>
+
+        <div class="card-bg rounded-2xl p-5 min-h-[520px] reveal hover:shadow-2xl transition-shadow hover:translate-y-[-4px] transition-transform">
+          <img src="images/services 3.svg" alt="Парковка" class="w-full h-64 object-cover rounded-lg mb-4" />
+          <h3 class="text-[#2C3E50] text-xl font-medium text-center">Парковка</h3>
+          <p class="text-[#41566C] text-center mt-2">Для гостей отеля доступна охраняемая парковка.</p>
+        </div>
+
+        <div class="card-bg rounded-2xl p-5 min-h-[520px] reveal hover:shadow-2xl transition-shadow hover:translate-y-[-4px] transition-transform">
+          <img src="images/services 4.svg" alt="Бронирование" class="w-full h-64 object-cover rounded-lg mb-4" />
+          <h3 class="text-[#2C3E50] text-xl font-medium text-center">Помощь с бронированием</h3>
+          <p class="text-[#41566C] text-center mt-2">Наша служба размещения поможет организовать трансфер или экскурсию.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-8 text-center">FAQ</h2>
+
+        <div class="space-y-4">
+
+        <details class="group card-bg text-[#2C3E50] rounded-xl p-6 transition-all duration-300">
+            <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold">
+            Какое время заезда и выезда?
+            <img src="images/down.svg" alt="" class="transition-transform duration-300 group-open:rotate-180">
+            </summary>
+            <div class="mt-4 text-gray-300 leading-relaxed animate-fade-in">
+            Заезд — с 14:00, выезд — до 12:00. Ранний заезд или поздний выезд возможны по запросу (за дополнительную плату, при наличии возможности).
+            </div>
+        </details>
+
+        <details class="group card-bg text-[#2C3E50] rounded-xl p-6 transition-all duration-300">
+            <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold">
+            Есть ли у вас парковка?
+            <img src="images/down.svg" alt="" class="transition-transform duration-300 group-open:rotate-180">
+            </summary>
+            <div class="mt-4 text-gray-300 leading-relaxed animate-fade-in">
+            Да, для наших гостей доступна охраняемая парковка. Пожалуйста, предупредите о своем автомобиле заранее.
+            </div>
+        </details>
+
+        <details class="group card-bg text-[#2C3E50] rounded-xl p-6 transition-all duration-300">
+            <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold">
+            Можно ли остановиться с питомцем?
+            <img src="images/down.svg" alt="" class="transition-transform duration-300 group-open:rotate-180">
+            </summary>
+            <div class="mt-4 text-gray-300 leading-relaxed animate-fade-in">
+            Да, мы рады гостям с небольшими собаками и кошками. Сообщите об этом при бронировании.
+            </div>
+        </details>
+
+        </div>
+    </div>
+    </section>
+
+  <section class="w-full px-4 md:px-10 mt-10 mb-12">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-center text-3xl md:text-4xl font-semibold text-black mb-6 reveal">Как нас найти</h2>
+
+    <img src="images/map.svg" alt="Карта" class="h-full w-full rounded-2xl h-[420px] flex items-center justify-center reveal"/>
+    </div>
+  </section>
+
+  <footer class="w-full px-6 md:px-12 py-8 section-bg mt-6">
+    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start gap-6">
+      <div class="flex items-center gap-3">
+        <img src="images/logo footer.svg" alt="Логотип" class="h-[93]"/>
+      </div>
+
+      <div class="flex-1 text-center md:text-right">
+        <h4 class="text-white text-xl font-semibold mb-2">Свяжитесь с нами</h4>
+        <p class="text-white">Адрес: ул. Центральная, 1, г. Москва</p>
+        <p class="text-white">Телефон: +7 (495) 000-00-00</p>
+        <p class="text-white">E-mail: info@monarch-hotel.ru</p>
+        <p class="text-white">Ресепшн: Круглосуточно</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    (function(){
+      const btn = document.getElementById('mobileMenuBtn');
+      const nav = document.getElementById('mobileNav');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', () => {
+        nav.classList.toggle('hidden');
+      });
+    })();
+
+    (function(){
+      const reveals = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+
+        reveals.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => obs.observe(el));
+    })();
+  </script>
+</body>
+</html>
